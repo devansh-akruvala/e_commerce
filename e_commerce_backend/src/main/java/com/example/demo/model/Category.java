@@ -12,7 +12,7 @@ public class Category {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id; 
+	private Integer categoryId; 
 	
 	@NotBlank(message = "category Name may not be blank")
 	private String categoryName;
@@ -21,12 +21,12 @@ public class Category {
 	
 	private String categoryImageUrl;
 
-	public Integer getId() {
-		return id;
+	public Integer getCategoryId() {
+		return categoryId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getCategoryName() {

@@ -21,4 +21,15 @@ public class CategoryService {
 	public List<Category> listCategory(){
 		return categoryRepository.findAll();
 	}
+	
+	public Category editCategory(int id,Category category) {
+		Category updateCategory = new Category();
+		updateCategory.setCategoryName(category.getCategoryName());
+		updateCategory.setCategoryId(id);
+		updateCategory.setCategoryDescription(category.getCategoryDescription());
+		updateCategory.setCategoryImageUrl(category.getCategoryImageUrl());
+		
+		return categoryRepository.save(updateCategory);
+	}
+	
 }
