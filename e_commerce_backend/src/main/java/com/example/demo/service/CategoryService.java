@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ public class CategoryService {
 	public List<Category> listCategory(){
 		return categoryRepository.findAll();
 	}
-	
+
 	public Category editCategory(int id,Category category) {
 		Category updateCategory = new Category();
 		updateCategory.setCategoryName(category.getCategoryName());
@@ -32,4 +33,8 @@ public class CategoryService {
 		return categoryRepository.save(updateCategory);
 	}
 	
+	public Optional<Category> getCategoryById(int categoryId) {
+		return categoryRepository.findById(categoryId);
+	}
 }
+
