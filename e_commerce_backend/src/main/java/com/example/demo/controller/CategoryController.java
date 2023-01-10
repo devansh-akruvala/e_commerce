@@ -31,9 +31,9 @@ public class CategoryController {
 	}
 	
 	@GetMapping("/list")
-	public ResponseEntity<ApiResponse> listCategory(){
+	public ResponseEntity<List<Category>> listCategory(){
 		List<Category> categories = categoryService.listCategory();
-		return new ResponseEntity<ApiResponse>(new ApiResponse(true, categories),HttpStatus.OK);
+		return new ResponseEntity<>(categories,HttpStatus.OK);
 	}
 	@PutMapping("/update/{categoryId}")
 	public ResponseEntity<ApiResponse> updateCategory(
