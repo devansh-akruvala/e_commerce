@@ -5,14 +5,14 @@ import java.time.LocalDateTime;
 public class ApiResponse {
 	
 	private final boolean success;
-	private final Object object;
+	private final Object response;
 	
 	
 	
 	public ApiResponse(boolean success, Object object) {
 		super();
 		this.success = success;
-		this.object = object;
+		this.response = object;
 	}
 
 
@@ -21,8 +21,8 @@ public class ApiResponse {
 		return success;
 	}
 
-	public Object getObject() {
-		return object;
+	public Object getResponse() {
+		return response;
 	}
 
 

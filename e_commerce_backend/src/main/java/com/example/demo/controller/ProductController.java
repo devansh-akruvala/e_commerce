@@ -64,8 +64,7 @@ public class ProductController {
 		try {
 			product = productService.updateProduct(productDto,optionalCategory.get(),productId);
 		} catch (Exception e) {
-			
-			new ResponseEntity<>(new ApiResponse(false, e),HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new ApiResponse(false, e.getMessage()),HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<>(new ApiResponse(true, product),HttpStatus.OK);
 	}
