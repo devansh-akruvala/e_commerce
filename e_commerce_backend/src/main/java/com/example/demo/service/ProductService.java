@@ -38,7 +38,7 @@ public class ProductService {
 		return allProducts;
 	}
 
-	private ProductDto productToPoroductDto(Product product) {
+	public ProductDto productToPoroductDto(Product product) {
 		ProductDto productDto = new ProductDto();
 		productDto.setProductName(product.getProductName());
 		productDto.setProductDescription(product.getProductDescription());
