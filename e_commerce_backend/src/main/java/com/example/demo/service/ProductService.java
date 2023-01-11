@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.ProductDto;
+import com.example.demo.exceptions.ProductNotExistException;
 import com.example.demo.model.Category;
 import com.example.demo.model.Product;
 import com.example.demo.repository.ProductRepository;
@@ -65,6 +66,14 @@ public class ProductService {
 		product.setProductId(productId);
 		Product updatedProduct = productRepository.save(product);
 		return updatedProduct;
+	}
+
+	public Product findById(Integer productId) {
+		Optional<Product> product = productRepository.findById(productId);
+		if(product.isEmpty()) {
+			throw new ProductNotExistException("Product doesnt exist"+productId);
+		}
+		return product.get();
 	}
 
 	// private Product productDtoToProduct(ProductDto productDto) {
